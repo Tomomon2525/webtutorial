@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <meta name="robots" content="noindex , nofollow , noarchive" />
+    <title>Secret</title>
+</head>
+
+<body>
+    <h1>どうやってここに！？</h1>
+    <div>
+        <p>FlagIsSuperSecret</p>
+    </div>
+    <div>
+        <input type="text" id="flag" required size="40">
+        <input type="button" value="Submit Flag" onclick="SubmitFlag();"/><br/>
+
+    </div>
+
+    <script>
+
+        const enc_flag = "c61c9bb00d87a95df6f6843a3046e035ccc0b89d6daa84b74110339ed65f2603"
+
+        //https://scrapbox.io/nwtgck/SHA256%E3%81%AE%E3%83%8F%E3%83%83%E3%82%B7%E3%83%A5%E3%82%92JavaScript%E3%81%AEWeb%E6%A8%99%E6%BA%96%E3%81%AE%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%A0%E3%81%91%E3%81%A7%E8%A8%88%E7%AE%97%E3%81%99%E3%82%8B
+        async function sha256(str) {
+        // Convert string to ArrayBuffer
+        const buff = new Uint8Array([].map.call(str, (c) => c.charCodeAt(0))).buffer;
+        // Calculate digest
+        const digest = await crypto.subtle.digest('SHA-256', buff);
+        // Convert ArrayBuffer to hex string
+        // (from: https://stackoverflow.com/a/40031979)
+        return [].map.call(new Uint8Array(digest), x => ('00' + x.toString(16)).slice(-2)).join('');
+        }
+        async function SubmitFlag() {
+          var input = document.getElementById("flag");
+          var flag = input.value.toUpperCase();
+          const digest = await sha256(flag);
+          if(digest==enc_flag){
+              alert("正解");
+          }else{
+              alert("不正解");
+          };
+        }
+      </script>
+</body>
+
+</html>
