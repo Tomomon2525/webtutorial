@@ -2,8 +2,7 @@ name: Build and Deploy
 
 on:
   schedule:
-    # これで30時間毎にコードが実行されます。
-    - cron: '5 * * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   build-deploy:
