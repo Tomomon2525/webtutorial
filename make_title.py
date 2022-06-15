@@ -1,7 +1,7 @@
 import glob
 import os
 
-files = glob.glob("./pages/*.html")
+files = sorted(glob.glob("./pages/*.html"))
 for file in files:
     print(file)
 
