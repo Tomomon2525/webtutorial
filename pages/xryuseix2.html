@@ -1,0 +1,37 @@
+<!-- @format -->
+
+<html>
+  <body>
+    <h1>xryuseixのホームページ</h1>
+
+    <h2>好きなこと</h2>
+    <ol>
+      <li>プログラミング</li>
+      <li>Twitter</li>
+    </ol>
+
+    <p id="count">0</p>
+    <button onclick="countUp()">ここをクリック！</button>
+  </body>
+
+  <style>
+    h2 {
+      color: lightgreen; /* 文字色を変える */
+    }
+    li {
+      color: #0000cd;
+    }
+    ol {
+      background-color: aquamarine;  /* 背景色を変える */
+      border-radius: 5px; /* 5pxの角丸 */
+      width: 300px; /* 300px幅 */
+    }
+  </style>
+  <script>
+    function countUp() {
+      const count = document.getElementById("count"); // id="count"の要素を取得
+      const nextCount = (parseInt(count.innerText) + 1).toString(); // 数字にして+1してから文字列にする
+      count.innerText = nextCount; // id="count"の要素に文字列を代入
+    }
+  </script>
+</html>
