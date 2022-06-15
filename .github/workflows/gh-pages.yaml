@@ -1,9 +1,9 @@
 name: Build and Deploy
 
 on:
-  push:
-    branches:
-      - master
+  schedule:
+    # これで30時間毎にコードが実行されます。
+    - cron: '5 * * * *'
 
 jobs:
   build-deploy:
